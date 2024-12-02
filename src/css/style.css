@@ -1,93 +1,142 @@
-/* Estilo General */
-body {
+/* Estilos globales */
+* {
   margin: 0;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
-  background: linear-gradient(to bottom, #c9f9ff, #ffeecf);
-  color: #ff7c87;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
   overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Fondo de la página */
+.background {
+  position: relative;
+  min-height: 100vh; /* Asegura que el fondo cubra toda la pantalla */
+  background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+  animation: gradientAnimation 10s ease infinite;
+}
+
+/* Nubes en el fondo */
+.clouds {
+  position: fixed;  /* Usamos fixed para que las nubes se mantengan en su lugar al hacer scroll */
+  top: 0;
+  left: 0;
+  width: 200%; /* Asegura que las nubes cubran el doble de la pantalla para hacer el efecto más fluido */
+  height: 200px; /* Aumenta la altura de las nubes para que cubran toda la parte superior */
+  background: url('/images/clouds.png') repeat-x;
+  animation: cloudMove 30s linear infinite;
+  z-index: -1; /* Asegura que las nubes estén detrás del contenido */
+}
+
+/* Animación para mover las nubes de izquierda a derecha */
+@keyframes cloudMove {
+  0% {
+      transform: translateX(0);
+  }
+  100% {
+      transform: translateX(-50%); /* Mueve las nubes de un extremo al otro */
+  }
+}
+
+/* Estilos para el contenido */
+.easter-container {
   text-align: center;
+  color: #fff;
+  margin-top: 20px;
 }
 
 h1 {
-  font-size: 4rem;
-  margin-top: 50px;
-  animation: fadeIn 2s ease-in-out;
+  font-size: 3em;
+  margin-bottom: 10px;
 }
 
 p {
-  font-size: 1.5rem;
-  margin-top: 20px;
-  animation: fadeIn 4s ease-in-out;
+  font-size: 1.5em;
 }
 
-/* Conejos */
-.bunnies .bunny {
+/* Animación de los conejos */
+.bunnies {
   position: absolute;
-  width: 150px;
-  animation: hop 6s infinite ease-in-out;
+  top: 20%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.bunny {
+  position: absolute;
+  width: 100px;
+  animation: bunnyAnimation 6s ease-in-out infinite;
 }
 
 .bunny1 {
-  top: 20%;
-  left: 10%;
   animation-delay: 0s;
 }
 
 .bunny2 {
-  top: 50%;
-  right: 15%;
-  animation-delay: 2s;
-}
-
-/* Huevos */
-.eggs .egg {
-  position: absolute;
-  width: 100px;
-  animation: roll 4s infinite ease-in-out;
-}
-
-.egg1 {
-  bottom: 20%;
-  left: 20%;
-  animation-delay: 1s;
-}
-
-.egg2 {
-  bottom: 10%;
-  right: 30%;
-  animation-delay: 2s;
-}
-
-.egg3 {
-  bottom: 15%;
-  left: 50%;
   animation-delay: 3s;
 }
 
-/* Animaciones */
-@keyframes hop {
-  0%, 100% {
+@keyframes bunnyAnimation {
+  0% {
+      transform: translateX(-100px) translateY(0);
+  }
+  25% {
+      transform: translateX(50vw) translateY(-100px);
+  }
+  50% {
+      transform: translateX(100vw) translateY(0);
+  }
+  75% {
+      transform: translateX(50vw) translateY(100px);
+  }
+  100% {
+      transform: translateX(-100px) translateY(0);
+  }
+}
+
+/* Animación de los huevos */
+.eggs {
+  position: absolute;
+  top: 60%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  animation: eggAnimation 10s ease-in-out infinite;
+}
+
+.egg {
+  width: 80px;
+  animation: eggBounce 6s ease-in-out infinite;
+}
+
+@keyframes eggBounce {
+  0% {
       transform: translateY(0);
   }
   50% {
-      transform: translateY(-50px);
+      transform: translateY(-100px);
+  }
+  100% {
+      transform: translateY(0);
   }
 }
 
-@keyframes roll {
-  0%, 100% {
-      transform: translateX(0) rotate(0deg);
+/* Animación de fondo (degradado) */
+@keyframes gradientAnimation {
+  0% {
+      background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
   }
   50% {
-      transform: translateX(50px) rotate(360deg);
+      background: linear-gradient(135deg, #a6c1ee, #fbc2eb);
   }
-}
-
-@keyframes fadeIn {
-  from {
-      opacity: 0;
-  }
-  to {
-      opacity: 1;
+  100% {
+      background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
   }
 }
