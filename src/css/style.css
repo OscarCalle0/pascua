@@ -1,0 +1,93 @@
+/* Estilo General */
+body {
+  margin: 0;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background: linear-gradient(to bottom, #c9f9ff, #ffeecf);
+  color: #ff7c87;
+  overflow: hidden;
+  text-align: center;
+}
+
+h1 {
+  font-size: 4rem;
+  margin-top: 50px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+p {
+  font-size: 1.5rem;
+  margin-top: 20px;
+  animation: fadeIn 4s ease-in-out;
+}
+
+/* Conejos */
+.bunnies .bunny {
+  position: absolute;
+  width: 150px;
+  animation: hop 6s infinite ease-in-out;
+}
+
+.bunny1 {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.bunny2 {
+  top: 50%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+/* Huevos */
+.eggs .egg {
+  position: absolute;
+  width: 100px;
+  animation: roll 4s infinite ease-in-out;
+}
+
+.egg1 {
+  bottom: 20%;
+  left: 20%;
+  animation-delay: 1s;
+}
+
+.egg2 {
+  bottom: 10%;
+  right: 30%;
+  animation-delay: 2s;
+}
+
+.egg3 {
+  bottom: 15%;
+  left: 50%;
+  animation-delay: 3s;
+}
+
+/* Animaciones */
+@keyframes hop {
+  0%, 100% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-50px);
+  }
+}
+
+@keyframes roll {
+  0%, 100% {
+      transform: translateX(0) rotate(0deg);
+  }
+  50% {
+      transform: translateX(50px) rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
