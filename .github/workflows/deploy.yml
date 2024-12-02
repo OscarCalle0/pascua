@@ -1,4 +1,4 @@
-`name: deploy application vite with github pages
+name: deploy application vite with github pages
 
 on:
   push:
